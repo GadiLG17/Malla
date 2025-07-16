@@ -33,11 +33,10 @@ th {
   text-align: left;
 }
 
-/* Tarjeta del curso */
 .curso {
   position: relative;
   border-radius: 8px;
-  margin: 30px 0 !important;  /* Aumentado y forzado */
+  margin: 30px 0;
   padding: 10px;
   font-weight: bold;
   cursor: pointer;
@@ -45,7 +44,7 @@ th {
   color: #003344;
   z-index: 1;
 }
-/* Colores aleatorios */
+
 .color1 { background-color: #cceeff; }
 .color2 { background-color: #b3e5fc; }
 .color3 { background-color: #d0f0ff; }
@@ -62,10 +61,9 @@ th {
   text-decoration: line-through;
 }
 
-/* Tooltip */
 .tooltip {
   position: absolute;
-  bottom: 100%; /* Hacia arriba */
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 10px;
@@ -76,16 +74,11 @@ th {
   font-size: 12px;
   white-space: nowrap;
   display: none;
-  z-index: 9999; /* Para que esté encima de todo */
+  z-index: 9999;
   pointer-events: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .curso:hover .tooltip {
   display: block;
-}
-
-.requisito {
-  outline: 2px dashed orange;
-  outline-offset: -3px;
 }
