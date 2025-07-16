@@ -1,0 +1,137 @@
+body {
+  font-family: sans-serif;
+  background: #cff0fc;
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  max-width: 1400px;
+  border-collapse: collapse;
+  margin: 50px auto;
+  table-layout: fixed;
+}
+th, td {
+  border: 2px solid hsl(196, 91%, 83%); /* Aplica a todas las celdas */
+}
+
+td:first-child,
+th:first-child {
+  min-width: 160px;     /* más ancho que el resto */
+  max-width: 200px;
+  width: 16%;
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background-color: #24b8cb80;  /* igual al .area */
+}
+
+
+th {
+  background-color: #21a2b380;
+}
+
+.area {
+  background-color: #1b85a2;
+  font-weight: bold;
+  text-align: left;
+  white-space: normal;           /* Permite saltos de línea */
+  word-wrap: break-word;         /* Para romper palabras largas */
+  overflow-wrap: break-word;     /* Mejor soporte moderno */
+  vertical-align: top;
+  max-width: 170px;              /* Puedes ajustar si es necesario */
+  box-sizing: border-box;
+}
+
+
+/* Tarjetas */
+.curso {
+  position: relative;
+  border-radius: 8px;
+  margin: 18px 0 !important;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #003344;
+  z-index: 1;
+  word-wrap: break-word;         /* Rompe palabras largas */
+  overflow-wrap: break-word;     /* También para navegadores modernos */
+  white-space: normal;           /* Permite saltos de línea */
+  max-width: 100%;               /* No se sale del contenedor */
+  box-sizing: border-box;        /* Incluye padding en el ancho */
+}
+
+
+.curso:hover {
+  z-index: 1;
+  filter: brightness(1.05);
+}
+
+.curso.llevado {
+  text-decoration: line-through;
+  text-decoration-color: rgb(103, 152, 250);  /* ← Aquí defines el color de la línea */
+}
+
+
+/* Tooltip flotante */
+#tooltip-global {
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 999999;
+  pointer-events: none;
+  display: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Resaltado de requisitos */
+.requisito {
+  outline: 2px dashed orange;
+  outline-offset: -3px;
+}
+
+/* Colores */
+.color1 { background-color: #cceeff; }
+.color2 { background-color: #b3e5fc; }
+.color3 { background-color: #d0f0ff; }
+.color4 { background-color: #a2d5f2; }
+.color5 { background-color: #e1f5fe; }
+
+.titulo-malla {
+  text-align: center;
+  font-size: 40px;
+  color: #114556;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #b2ebf2;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-titulo {
+  background-color: #21a2b3;   /* Fondo celeste oscuro */
+  border-radius: 16px;
+  padding: 20px 30px;
+  max-width: 900px;
+  margin: 30px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.titulo-malla {
+  color: #ffffff;
+  font-size: 32px;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #005060;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
