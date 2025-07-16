@@ -37,7 +37,7 @@ th {
 .curso {
   position: relative;
   border-radius: 8px;
-  margin: 18px 0 !important;  /* Aumentado y forzado */
+  margin: 30px 0 !important;  /* Aumentado y forzado */
   padding: 10px;
   font-weight: bold;
   cursor: pointer;
