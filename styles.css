@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  background: #f4f4f4;
+  background: #cff0fc;
   margin: 0;
   padding: 0;
 }
@@ -30,27 +30,38 @@ th {
   text-align: left;
 }
 
+/* Estilo general para las tarjetas de curso */
 .curso {
   position: relative;
-  background: #e0e0e0; /* gris por defecto */
   border-radius: 8px;
   margin: 4px 0;
   padding: 6px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
+  color: #003344;
 }
 
+/* Colores de fondo variados para cursos */
+.color1 { background-color: #cceeff; }
+.color2 { background-color: #b3e5fc; }
+.color3 { background-color: #d0f0ff; }
+.color4 { background-color: #a2d5f2; }
+.color5 { background-color: #e1f5fe; }
+
+/* Efecto al pasar el cursor */
 .curso:hover {
-  background-color: #d0e9f5;
+  filter: brightness(1.1);
 }
 
+/* Cuando el curso ha sido marcado como llevado */
 .curso.llevado {
-  background-color: #a7dcf1;
+  background-color: #a7dcf1 !important;
   color: #003344;
   text-decoration: line-through;
 }
 
+/* Tooltip con créditos y requisitos */
 .tooltip {
   position: absolute;
   top: 100%;
@@ -66,10 +77,12 @@ th {
   z-index: 100;
 }
 
+/* Mostrar tooltip al pasar el cursor */
 .curso:hover .tooltip {
   display: block;
 }
 
+/* Resaltado de requisitos */
 .requisito {
   outline: 2px dashed orange;
   outline-offset: -3px;
