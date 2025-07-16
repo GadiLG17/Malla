@@ -135,3 +135,15 @@ th {
   letter-spacing: 1px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Contenedor con scroll horizontal en móviles */
+.tabla-scroll {
+  width: 100%;
+  overflow-x: auto;         /* Habilita scroll horizontal */
+  overflow-y: hidden;
+}
+
+/* Evita que la tabla se achique en pantallas pequeñas */
+table {
+  min-width: 1200px;        /* O el ancho total estimado que ocupa tu tabla */
+}
