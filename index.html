@@ -20,19 +20,20 @@
     .curso {
       position: relative;
       padding: 10px;
-      background: white;
+      background: #e0e0e0; /* gris por defecto */
       border: 2px solid #ccc;
       border-radius: 8px;
       text-align: center;
       cursor: pointer;
       transition: 0.2s;
+      font-weight: bold;
     }
     .curso:hover {
-      background-color: #eef7ff;
+      background-color: #d0e9f5; /* azul más claro al pasar el mouse */
     }
-    .curso.tachado {
-      text-decoration: line-through;
-      background-color: #cce5cc;
+    .curso.llevado {
+      background-color: #a7dcf1; /* celeste cuando se marca como llevado */
+      color: #003344;
     }
     .tooltip {
       position: absolute;
@@ -46,6 +47,7 @@
       font-size: 12px;
       white-space: nowrap;
       display: none;
+      z-index: 10;
     }
     .curso:hover .tooltip {
       display: block;
@@ -86,7 +88,7 @@
 
     cursos.forEach(curso => {
       curso.addEventListener('click', () => {
-        curso.classList.toggle('tachado');
+        curso.classList.toggle('llevado');
       });
 
       curso.addEventListener('mouseenter', () => {
@@ -107,4 +109,3 @@
   </script>
 </body>
 </html>
-
