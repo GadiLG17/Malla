@@ -41,13 +41,14 @@
 
     .curso {
       position: relative;
-      background: #e0e0e0; /* gris */
+      background: #e0e0e0;
       border-radius: 6px;
       margin: 4px 0;
       padding: 6px;
       font-weight: bold;
       cursor: pointer;
       transition: background 0.2s;
+      font-size: 13px;
     }
 
     .curso:hover {
@@ -55,7 +56,7 @@
     }
 
     .curso.llevado {
-      background-color: #a7dcf1; /* celeste */
+      background-color: #a7dcf1;
       color: #003344;
       text-decoration: line-through;
     }
@@ -96,7 +97,7 @@
       </tr>
     </thead>
     <tbody id="malla-body">
-      <!-- Aquí se rellenarán dinámicamente los cursos -->
+      <!-- Se rellenará dinámicamente -->
     </tbody>
   </table>
 
@@ -195,40 +196,36 @@
     };
 
     const tbody = document.getElementById("malla-body");
-    const areas = ['CURSOS']; // Una única fila, por ahora
-    areas.forEach(area => {
-      const tr = document.createElement("tr");
-      const tdArea = document.createElement("td");
-      tdArea.className = "area";
-      tdArea.textContent = area;
-      tr.appendChild(tdArea);
+    const fila = document.createElement("tr");
+    const tdArea = document.createElement("td");
+    tdArea.className = "area";
+    tdArea.textContent = "CURSOS";
+    fila.appendChild(tdArea);
 
-      for (let i = 1; i <= 10; i++) {
-        const ciclo = ["I","II","III","IV","V","VI","VII","VIII","IX","X"][i - 1];
-        const td = document.createElement("td");
-        if (cursosPorSemestre[ciclo]) {
-          cursosPorSemestre[ciclo].forEach(curso => {
-            const div = document.createElement("div");
-            div.className = "curso";
-            div.dataset.id = curso.id;
-            div.dataset.requiere = curso.requiere ? curso.requiere.join(',') : '';
-            div.innerHTML = `${curso.id}<div class="tooltip">Créditos: ${curso.creditos}${curso.requiere ? " | Requiere: " + curso.requiere.join(", ") : ""}</div>`;
-            td.appendChild(div);
-          });
-        }
-        tr.appendChild(td);
-      }
-      tbody.appendChild(tr);
-    });
+    for (let i = 1; i <= 10; i++) {
+      const ciclo = ["I","II","III","IV","V","VI","VII","VIII","IX","X"][i - 1];
+      const td = document.createElement("td");
+
+      cursosPorSemestre[ciclo]?.forEach(curso => {
+        const div = document.createElement("div");
+        div.className = "curso";
+        div.dataset.id = curso.id;
+        div.dataset.requiere = curso.requiere ? curso.requiere.join(',') : '';
+        div.innerHTML = `${curso.id} - ${curso.nombre}<div class="tooltip">Créditos: ${curso.creditos}${curso.requiere ? " | Requiere: " + curso.requiere.join(", ") : ""}</div>`;
+        td.appendChild(div);
+      });
+
+      fila.appendChild(td);
+    }
+
+    tbody.appendChild(fila);
 
     document.querySelectorAll('.curso').forEach(curso => {
       curso.addEventListener('mouseenter', () => {
         const reqs = curso.dataset.requiere?.split(',') || [];
         reqs.forEach(rid => {
-          if (rid.trim()) {
-            const el = document.querySelector(`[data-id="${rid.trim()}"]`);
-            if (el) el.classList.add('requisito');
-          }
+          const el = document.querySelector(`[data-id="${rid.trim()}"]`);
+          if (el) el.classList.add('requisito');
         });
       });
 
