@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malla Curricular Arquitectura</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      margin: 20px;
+    }
+    .malla {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .curso {
+      position: relative;
+      padding: 10px;
+      background: white;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .curso:hover {
+      background-color: #eef7ff;
+    }
+    .curso.tachado {
+      text-decoration: line-through;
+      background-color: #cce5cc;
+    }
+    .tooltip {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      display: none;
+    }
+    .curso:hover .tooltip {
+      display: block;
+    }
+    .requisito {
+      outline: 2px dashed orange;
+      outline-offset: -6px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Malla Curricular - Arquitectura (Plan 2025)</h1>
+  <div class="malla">
+    <!-- Ejemplo de curso con prerrequisito -->
+    <div class="curso" data-id="CV1" data-creditos="3">
+      Comunicación Verbal I
+      <div class="tooltip">Créditos: 3</div>
+    </div>
+
+    <div class="curso" data-id="CV2" data-creditos="3" data-requiere="CV1">
+      Comunicación Verbal II
+      <div class="tooltip">Créditos: 3 | Requiere: CV1</div>
+    </div>
+
+    <div class="curso" data-id="PR1" data-creditos="8">
+      Proyectos I
+      <div class="tooltip">Créditos: 8</div>
+    </div>
+
+    <div class="curso" data-id="PR2" data-creditos="8" data-requiere="PR1">
+      Proyectos II
+      <div class="tooltip">Créditos: 8 | Requiere: PR1</div>
+    </div>
+  </div>
+
+  <script>
+    const cursos = document.querySelectorAll('.curso');
+
+    cursos.forEach(curso => {
+      curso.addEventListener('click', () => {
+        curso.classList.toggle('tachado');
+      });
+
+      curso.addEventListener('mouseenter', () => {
+        const req = curso.getAttribute('data-requiere');
+        if (req) {
+          document.querySelectorAll(`[data-id="${req}"]`).forEach(c => {
+            c.classList.add('requisito');
+          });
+        }
+      });
+
+      curso.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.curso').forEach(c => {
+          c.classList.remove('requisito');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
 
