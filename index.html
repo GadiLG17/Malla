@@ -2,137 +2,251 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>Malla Curricular - Arquitectura (Plan 2025)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla Curricular Arquitectura</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ddd;
+    }
+
+    .area {
+      background-color: #e0e0e0;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .curso {
+      position: relative;
+      background: #e0e0e0; /* gris */
+      border-radius: 6px;
+      margin: 4px 0;
+      padding: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .curso:hover {
+      background-color: #d0e9f5;
+    }
+
+    .curso.llevado {
+      background-color: #a7dcf1; /* celeste */
+      color: #003344;
+      text-decoration: line-through;
+    }
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 100;
+    }
+
+    .curso:hover .tooltip {
+      display: block;
+    }
+
+    .requisito {
+      outline: 2px dashed orange;
+      outline-offset: -3px;
+    }
+  </style>
 </head>
 <body>
-  <h1 style="text-align:center; padding: 20px;">Malla Curricular - Arquitectura (Plan 2025)</h1>
+  <h1>Malla Curricular - Arquitectura (Plan 2025)</h1>
   <table>
     <thead>
       <tr>
-        <th>Semestre</th>
+        <th>Área / Ciclo</th>
         <th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th>
         <th>VI</th><th>VII</th><th>VIII</th><th>IX</th><th>X</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td class="area">Cursos</td>
-
-        <!-- SEMESTRE I -->
-        <td>
-          <div class="curso" data-id="ORU" data-creditos="2">ORU - Orientación Universitaria</div>
-          <div class="curso" data-id="CV1" data-creditos="3">CV1 - Comunicación Verbal I</div>
-          <div class="curso" data-id="MT1" data-creditos="4">MT1 - Matemáticas I</div>
-          <div class="curso" data-id="GD1" data-creditos="5">GD1 - Geometría Descriptiva</div>
-          <div class="curso" data-id="DA1" data-creditos="5">DA1 - Dibujo Arquitectónico I</div>
-          <div class="curso" data-id="IAR" data-creditos="3">IAR - Introducción a la Arquitectura</div>
-        </td>
-
-        <!-- SEMESTRE II -->
-        <td>
-          <div class="curso" data-id="CV2" data-creditos="3" data-requiere="CV1">CV2 - Comunicación Verbal II</div>
-          <div class="curso" data-id="MT2" data-creditos="4">MT2 - Matemáticas II</div>
-          <div class="curso" data-id="FG" data-creditos="4">FG - Física General</div>
-          <div class="curso" data-id="DA2" data-creditos="5">DA2 - Dibujo Arquitectónico II</div>
-          <div class="curso" data-id="GD2" data-creditos="3">GD2 - Geometría Descriptiva II</div>
-          <div class="curso" data-id="HA1" data-creditos="3">HA1 - Historia de la Arquitectura I</div>
-          <div class="curso" data-id="CL2" data-creditos="1">CL2 - Crédito de Libre Configuración I</div>
-        </td>
-
-        <!-- SEMESTRE III -->
-        <td>
-          <div class="curso" data-id="AF" data-creditos="3">AF - Antropología Filosófica</div>
-          <div class="curso" data-id="HI1" data-creditos="2">HI1 - Historia del Arte I</div>
-          <div class="curso" data-id="FA" data-creditos="4">FA - Física Aplicada</div>
-          <div class="curso" data-id="PR1" data-creditos="8">PR1 - Proyectos I</div>
-          <div class="curso" data-id="HA2" data-creditos="3">HA2 - Historia de la Arquitectura II</div>
-          <div class="curso" data-id="CT1" data-creditos="2" data-requiere="FG,IAR">CT1 - Construcción I</div>
-          <div class="curso" data-id="CL2_2" data-creditos="1">CL2 - Crédito de Libre Configuración II</div>
-        </td>
-
-        <!-- SEMESTRE IV -->
-        <td>
-          <div class="curso" data-id="HI2" data-creditos="2">HI2 - Historia del Arte II</div>
-          <div class="curso" data-id="RCT" data-creditos="3" data-requiere="AF">RCT - Realidad, Conocimiento y Trascendencia</div>
-          <div class="curso" data-id="PR2" data-creditos="8">PR2 - Proyectos II</div>
-          <div class="curso" data-id="HA4_3" data-creditos="3">HA3 - Historia de la Arquitectura III</div>
-          <div class="curso" data-id="EST1" data-creditos="2" data-requiere="FA,MT2">EST1 - Estructuras I</div>
-          <div class="curso" data-id="CL3" data-creditos="1">CL3 - Crédito de Libre Configuración III</div>
-          <div class="curso" data-id="ELEC1" data-creditos="4">ELEC1 - Curso Electivo I</div>
-          <div class="curso" data-id="HDA" data-creditos="4">HDA - Herramientas Digitales Aplicadas</div>
-        </td>
-
-        <!-- SEMESTRE V -->
-        <td>
-          <div class="curso" data-id="HUR" data-creditos="2" data-requiere="PR1">HUR - Historia del Urbanismo</div>
-          <div class="curso" data-id="T1" data-creditos="2">T1 - Introducción a la Teología</div>
-          <div class="curso" data-id="PR3" data-creditos="8" data-requiere="PR2">PR3 - Proyectos III</div>
-          <div class="curso" data-id="HA4" data-creditos="3" data-requiere="HA3">HA4 - Historia de la Arquitectura IV</div>
-          <div class="curso" data-id="CT2" data-creditos="2" data-requiere="CT1,MT2">CT2 - Construcción II</div>
-          <div class="curso" data-id="CL4" data-creditos="1">CL4 - Crédito de Libre Configuración IV</div>
-          <div class="curso" data-id="COP" data-creditos="4" data-requiere="PR2">COP - Conservación del Patrimonio</div>
-          <div class="curso" data-id="ELEC2" data-creditos="4">ELEC2 - Curso Electivo II</div>
-        </td>
-
-        <!-- SEMESTRE VI -->
-        <td>
-          <div class="curso" data-id="UR1" data-creditos="4" data-requiere="HUR">UR1 - Urbanismo I</div>
-          <div class="curso" data-id="T2" data-creditos="2" data-requiere="T1">T2 - Teología y Vida Cristiana</div>
-          <div class="curso" data-id="PR4" data-creditos="8" data-requiere="PR3">PR4 - Proyectos IV</div>
-          <div class="curso" data-id="ETC" data-creditos="2" data-requiere="HA4">ETC - Estética</div>
-          <div class="curso" data-id="EST2" data-creditos="2" data-requiere="CT1,EST1">EST2 - Estructuras II</div>
-          <div class="curso" data-id="CL5" data-creditos="1">CL5 - Crédito de Libre Configuración V</div>
-          <div class="curso" data-id="ELEC3" data-creditos="4">ELEC3 - Curso Electivo III</div>
-          <div class="curso" data-id="GPR" data-creditos="4">GPR - Gestión de Proyectos</div>
-        </td>
-
-        <!-- SEMESTRE VII -->
-        <td>
-          <div class="curso" data-id="UR2" data-creditos="4" data-requiere="UR1">UR2 - Urbanismo II</div>
-          <div class="curso" data-id="DSO" data-creditos="2" data-requiere="T2">DSO - Doctrina Social de la Iglesia</div>
-          <div class="curso" data-id="PR5" data-creditos="8" data-requiere="PR4">PR5 - Proyectos V</div>
-          <div class="curso" data-id="EGA" data-creditos="3" data-requiere="PR3">EGA - Expresión Gráfica Avanzada</div>
-          <div class="curso" data-id="CT3" data-creditos="2" data-requiere="CT2">CT3 - Construcción III</div>
-          <div class="curso" data-id="IT1" data-creditos="2" data-requiere="CT1,EST1,PR4">IT1 - Instalaciones I</div>
-          <div class="curso" data-id="CL6" data-creditos="1">CL6 - Crédito de Libre Configuración VI</div>
-        </td>
-
-        <!-- SEMESTRE VIII -->
-        <td>
-          <div class="curso" data-id="UR3" data-creditos="4" data-requiere="UR2">UR3 - Urbanismo III</div>
-          <div class="curso" data-id="PR6" data-creditos="8" data-requiere="PR5">PR6 - Proyectos VI</div>
-          <div class="curso" data-id="FA1" data-creditos="4" data-requiere="CT3,EST2,PR5">FA1 - Fabricación I</div>
-          <div class="curso" data-id="EST3" data-creditos="2" data-requiere="EST2">EST3 - Estructuras III</div>
-          <div class="curso" data-id="IT2" data-creditos="2" data-requiere="IT1">IT2 - Instalaciones II</div>
-          <div class="curso" data-id="CL7" data-creditos="1">CL7 - Crédito de Libre Configuración VII</div>
-          <div class="curso" data-id="ELEC4" data-creditos="4">ELEC4 - Curso Electivo IV</div>
-        </td>
-
-        <!-- SEMESTRE IX -->
-        <td>
-          <div class="curso" data-id="PAI" data-creditos="4" data-requiere="UR2">PAI - Paisaje</div>
-          <div class="curso" data-id="PR7" data-creditos="8" data-requiere="PR6,UR2">PR7 - Proyectos VII</div>
-          <div class="curso" data-id="FA2" data-creditos="4" data-requiere="FA1,PR6">FA2 - Fabricación II</div>
-          <div class="curso" data-id="AP1" data-creditos="4" data-requiere="CT3,EST3,IT2,PR6">AP1 - Diseño Aplicado I</div>
-          <div class="curso" data-id="IT3" data-creditos="2" data-requiere="IT2">IT3 - Instalaciones III</div>
-          <div class="curso" data-id="CL8" data-creditos="1">CL8 - Crédito de Libre Configuración VIII</div>
-        </td>
-
-        <!-- SEMESTRE X -->
-        <td>
-          <div class="curso" data-id="DE" data-creditos="1" data-requiere="PR6">DE - Deontología</div>
-          <div class="curso" data-id="PR8" data-creditos="8" data-requiere="PR7,UR3">PR8 - Curso de Trabajo de Investigación: Proyectos 8</div>
-          <div class="curso" data-id="IPF" data-creditos="2" data-requiere="PR7">IPF - Curso de Trabajo de Investigación: Introducción al Proyecto de Fin de Carrera</div>
-          <div class="curso" data-id="AP2" data-creditos="4" data-requiere="AP1,PR7">AP2 - Diseño Aplicado II</div>
-          <div class="curso" data-id="STB" data-creditos="4" data-requiere="CT3,PR6">STB - Sostenibilidad</div>
-          <div class="curso" data-id="LAR" data-creditos="3" data-requiere="PR6">LAR - Legislación en Arquitectura</div>
-        </td>
-      </tr>
+    <tbody id="malla-body">
+      <!-- Aquí se rellenarán dinámicamente los cursos -->
     </tbody>
   </table>
 
-  <script src="script.js"></script>
+  <script>
+    const cursosPorSemestre = {
+      I: [
+        { id: 'ORU', nombre: 'Orientación Universitaria', creditos: 2 },
+        { id: 'CV1', nombre: 'Comunicación Verbal I', creditos: 3 },
+        { id: 'MT1', nombre: 'Matemáticas I', creditos: 4 },
+        { id: 'GD1', nombre: 'Geometría Descriptiva', creditos: 5 },
+        { id: 'DA1', nombre: 'Dibujo Arquitectónico I', creditos: 5 },
+        { id: 'IAR', nombre: 'Introducción a la Arquitectura', creditos: 3 }
+      ],
+      II: [
+        { id: 'CV2', nombre: 'Comunicación Verbal II', creditos: 3, requiere: ['CV1'] },
+        { id: 'MT2', nombre: 'Matemáticas II', creditos: 4 },
+        { id: 'FG', nombre: 'Física General', creditos: 4 },
+        { id: 'DA2', nombre: 'Dibujo Arquitectónico II', creditos: 5 },
+        { id: 'GD2', nombre: 'Geometría Descriptiva II', creditos: 3 },
+        { id: 'HA1', nombre: 'Historia de la Arquitectura I', creditos: 3 },
+        { id: 'CL1', nombre: 'Crédito de Libre Configuración I', creditos: 1 }
+      ],
+      III: [
+        { id: 'AF', nombre: 'Antropología Filosófica', creditos: 3 },
+        { id: 'HI1', nombre: 'Historia del Arte I', creditos: 2 },
+        { id: 'FA', nombre: 'Física Aplicada', creditos: 4 },
+        { id: 'PR1', nombre: 'Proyectos I', creditos: 8 },
+        { id: 'HA2', nombre: 'Historia de la Arquitectura II', creditos: 3 },
+        { id: 'CT1', nombre: 'Construcción I', creditos: 2, requiere: ['FG', 'IAR'] },
+        { id: 'CL2', nombre: 'Crédito de Libre Configuración II', creditos: 1 }
+      ],
+      IV: [
+        { id: 'HI2', nombre: 'Historia del Arte II', creditos: 2 },
+        { id: 'RCT', nombre: 'Realidad, Conocimiento y Trascendencia', creditos: 3, requiere: ['AF'] },
+        { id: 'PR2', nombre: 'Proyectos II', creditos: 8 },
+        { id: 'HA3', nombre: 'Historia de la Arquitectura III', creditos: 3 },
+        { id: 'EST1', nombre: 'Estructuras I', creditos: 2, requiere: ['FA', 'MT2'] },
+        { id: 'CL3', nombre: 'Crédito de Libre Configuración III', creditos: 1 },
+        { id: 'ELEC1', nombre: 'Curso Electivo I', creditos: 4 },
+        { id: 'HDA', nombre: 'Herramientas Digitales Aplicadas', creditos: 4 }
+      ],
+      V: [
+        { id: 'HUR', nombre: 'Historia del Urbanismo', creditos: 2, requiere: ['PR1'] },
+        { id: 'T1', nombre: 'Introducción a la Teología', creditos: 2 },
+        { id: 'PR3', nombre: 'Proyectos III', creditos: 8, requiere: ['PR2'] },
+        { id: 'HA4', nombre: 'Historia de la Arquitectura IV', creditos: 3, requiere: ['HA3'] },
+        { id: 'CT2', nombre: 'Construcción II', creditos: 2, requiere: ['CT1', 'MT2'] },
+        { id: 'CL4', nombre: 'Crédito de Libre Configuración IV', creditos: 1 },
+        { id: 'COP', nombre: 'Conservación del Patrimonio', creditos: 4, requiere: ['PR2'] },
+        { id: 'ELEC2', nombre: 'Curso Electivo II', creditos: 4 }
+      ],
+      VI: [
+        { id: 'UR1', nombre: 'Urbanismo I', creditos: 4, requiere: ['HUR'] },
+        { id: 'T2', nombre: 'Teología y Vida Cristiana', creditos: 2, requiere: ['T1'] },
+        { id: 'PR4', nombre: 'Proyectos IV', creditos: 8, requiere: ['PR3'] },
+        { id: 'ETC', nombre: 'Estética', creditos: 2, requiere: ['HA4'] },
+        { id: 'EST2', nombre: 'Estructuras II', creditos: 2, requiere: ['CT1', 'EST1'] },
+        { id: 'CL5', nombre: 'Crédito de Libre Configuración V', creditos: 1 },
+        { id: 'ELEC3', nombre: 'Curso Electivo III', creditos: 4 },
+        { id: 'GPR', nombre: 'Gestión de Proyectos', creditos: 4 }
+      ],
+      VII: [
+        { id: 'UR2', nombre: 'Urbanismo II', creditos: 4, requiere: ['UR1'] },
+        { id: 'DSO', nombre: 'Doctrina Social de la Iglesia', creditos: 2, requiere: ['T2'] },
+        { id: 'PR5', nombre: 'Proyectos V', creditos: 8, requiere: ['PR4'] },
+        { id: 'EGA', nombre: 'Expresión Gráfica Avanzada', creditos: 3, requiere: ['PR3'] },
+        { id: 'CT3', nombre: 'Construcción III', creditos: 2, requiere: ['CT2'] },
+        { id: 'IT1', nombre: 'Instalaciones I', creditos: 2, requiere: ['CT1', 'EST1', 'PR4'] },
+        { id: 'CL6', nombre: 'Crédito de Libre Configuración VI', creditos: 1 }
+      ],
+      VIII: [
+        { id: 'UR3', nombre: 'Urbanismo III', creditos: 4, requiere: ['UR2'] },
+        { id: 'PR6', nombre: 'Proyectos VI', creditos: 8, requiere: ['PR5'] },
+        { id: 'FA1', nombre: 'Fabricación I', creditos: 4, requiere: ['CT3', 'EST2', 'PR5'] },
+        { id: 'EST3', nombre: 'Estructuras III', creditos: 2, requiere: ['EST2'] },
+        { id: 'IT2', nombre: 'Instalaciones II', creditos: 2, requiere: ['IT1'] },
+        { id: 'CL7', nombre: 'Crédito de Libre Configuración VII', creditos: 1 },
+        { id: 'ELEC4', nombre: 'Curso Electivo IV', creditos: 4 }
+      ],
+      IX: [
+        { id: 'PAI', nombre: 'Paisaje', creditos: 4, requiere: ['UR2'] },
+        { id: 'PR7', nombre: 'Proyectos VII', creditos: 8, requiere: ['PR6', 'UR2'] },
+        { id: 'FA2', nombre: 'Fabricación II', creditos: 4, requiere: ['FA1', 'PR6'] },
+        { id: 'AP1', nombre: 'Diseño Aplicado I', creditos: 4, requiere: ['CT3', 'EST3', 'IT2', 'PR6'] },
+        { id: 'IT3', nombre: 'Instalaciones III', creditos: 2, requiere: ['IT2'] },
+        { id: 'CL8', nombre: 'Crédito de Libre Configuración VIII', creditos: 1 }
+      ],
+      X: [
+        { id: 'DE', nombre: 'Deontología', creditos: 1, requiere: ['PR6'] },
+        { id: 'PR8', nombre: 'Proyectos VIII', creditos: 8, requiere: ['PR7', 'UR3'] },
+        { id: 'IPF', nombre: 'Introducción al Proyecto de Fin de Carrera', creditos: 2, requiere: ['PR7'] },
+        { id: 'AP2', nombre: 'Diseño Aplicado II', creditos: 4, requiere: ['AP1', 'PR7'] },
+        { id: 'STB', nombre: 'Sostenibilidad', creditos: 4, requiere: ['CT3', 'PR6'] },
+        { id: 'LAR', nombre: 'Legislación en Arquitectura', creditos: 3, requiere: ['PR6'] }
+      ]
+    };
+
+    const tbody = document.getElementById("malla-body");
+    const areas = ['CURSOS']; // Una única fila, por ahora
+    areas.forEach(area => {
+      const tr = document.createElement("tr");
+      const tdArea = document.createElement("td");
+      tdArea.className = "area";
+      tdArea.textContent = area;
+      tr.appendChild(tdArea);
+
+      for (let i = 1; i <= 10; i++) {
+        const ciclo = ["I","II","III","IV","V","VI","VII","VIII","IX","X"][i - 1];
+        const td = document.createElement("td");
+        if (cursosPorSemestre[ciclo]) {
+          cursosPorSemestre[ciclo].forEach(curso => {
+            const div = document.createElement("div");
+            div.className = "curso";
+            div.dataset.id = curso.id;
+            div.dataset.requiere = curso.requiere ? curso.requiere.join(',') : '';
+            div.innerHTML = `${curso.id}<div class="tooltip">Créditos: ${curso.creditos}${curso.requiere ? " | Requiere: " + curso.requiere.join(", ") : ""}</div>`;
+            td.appendChild(div);
+          });
+        }
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    });
+
+    document.querySelectorAll('.curso').forEach(curso => {
+      curso.addEventListener('mouseenter', () => {
+        const reqs = curso.dataset.requiere?.split(',') || [];
+        reqs.forEach(rid => {
+          if (rid.trim()) {
+            const el = document.querySelector(`[data-id="${rid.trim()}"]`);
+            if (el) el.classList.add('requisito');
+          }
+        });
+      });
+
+      curso.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.curso').forEach(el => el.classList.remove('requisito'));
+      });
+
+      curso.addEventListener('click', () => {
+        const reqs = curso.dataset.requiere?.split(',').filter(r => r.trim()) || [];
+        const aprobados = Array.from(document.querySelectorAll('.curso.llevado')).map(el => el.dataset.id);
+        const todosAprobados = reqs.every(r => aprobados.includes(r));
+        if (reqs.length === 0 || todosAprobados) {
+          curso.classList.toggle('llevado');
+        } else {
+          alert("Debe aprobar antes: " + reqs.join(', '));
+        }
+      });
+    });
+  </script>
 </body>
 </html>
