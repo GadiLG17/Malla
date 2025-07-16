@@ -37,7 +37,7 @@ th {
 .curso {
   position: relative;
   border-radius: 8px;
-  margin: 12px 0; /* Espaciado vertical mayor entre tarjetas */
+  margin: 18px 0 !important;  /* Aumentado y forzado */
   padding: 10px;
   font-weight: bold;
   cursor: pointer;
@@ -45,7 +45,6 @@ th {
   color: #003344;
   z-index: 1;
 }
-
 /* Colores aleatorios */
 .color1 { background-color: #cceeff; }
 .color2 { background-color: #b3e5fc; }
