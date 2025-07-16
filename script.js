@@ -3,19 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cursos.forEach(curso => {
     const id = curso.dataset.id;
-    const credit = curso.dataset.creditos;
+    const credit = curso.dataset.creditos || "N/A";
     const reqs = (curso.dataset.requiere || "").split(",").filter(Boolean);
 
-    // Generar tooltip
+    // Generar tooltip mejorado
     let tip = curso.querySelector(".tooltip");
     if (!tip) {
       tip = document.createElement("div");
       tip.className = "tooltip";
       curso.appendChild(tip);
     }
-    tip.textContent = `Créditos: ${credit}${reqs.length ? ` | Requiere: ${reqs.join(", ")}` : ""}`;
+    tip.innerHTML = `Créditos: ${credit}${reqs.length ? `<br>Requiere: ${reqs.join(", ")}` : "<br>Sin requisitos"}`;
 
-    // Click con bloqueo si no cumple prerrequisitos
+    // Click con validación de prerrequisitos
     curso.addEventListener("click", () => {
       const reqsOk = reqs.every(r => {
         const el = document.querySelector(`.curso[data-id="${r}"]`);
@@ -29,15 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Hover resaltar prerrequisitos
-    curso.addEventListener("mouseenter", () => {
-      reqs.forEach(r => {
-        const el = document.querySelector(`.curso[data-id="${r}"]`);
-        if (el) el.classList.add("requisito");
-      });
-    });
-    curso.addEventListener("mouseleave", () => {
-      document.querySelectorAll(".requisito").forEach(e => e.classList.remove("requisito"));
-    });
+    // ❌ Eliminado el efecto visual de resaltar requisitos
+    // curso.addEventListener("mouseenter", ... )
+    // curso.addEventListener("mouseleave", ... )
   });
 });
