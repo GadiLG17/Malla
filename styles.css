@@ -19,7 +19,7 @@ th, td {
   text-align: center;
   min-width: 100px;
   position: relative;
-  overflow: visible;
+  overflow: visible; /* Asegura que tooltips no se corten */
 }
 
 th {
@@ -32,19 +32,21 @@ th {
   text-align: left;
 }
 
+/* Tarjetas de cursos */
 .curso {
   position: relative;
   border-radius: 8px;
-  margin-bottom: 24px; /* más espacio */
+  margin: 12px 0; /* Espaciado vertical entre tarjetas */
   padding: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
   color: #003344;
   z-index: 1;
+  overflow: visible;
 }
 
-/* Variantes de color para cursos */
+/* Colores variados para cursos */
 .color1 { background-color: #cceeff; }
 .color2 { background-color: #b3e5fc; }
 .color3 { background-color: #d0f0ff; }
@@ -52,7 +54,7 @@ th {
 .color5 { background-color: #e1f5fe; }
 
 .curso:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.05);
 }
 
 .curso.llevado {
@@ -61,9 +63,10 @@ th {
   text-decoration: line-through;
 }
 
+/* Tooltip */
 .tooltip {
   position: absolute;
-  bottom: 100%; /* Aparece hacia ARRIBA */
+  bottom: 100%; /* Aparece hacia arriba */
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 8px;
@@ -83,6 +86,7 @@ th {
   display: block;
 }
 
+/* Estilo para cursos que son requisitos */
 .requisito {
   outline: 2px dashed orange;
   outline-offset: -3px;
