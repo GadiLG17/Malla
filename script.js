@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       I: ["MT1|Matemáticas I", "GD1|Geometría Descriptiva", "DA1|Dibujo arquitectónico I", "IAR|Introducción a la Arquitectura"],
       II: ["MT2|Matemáticas II", "FG|Física General", "GD2|Geometría Descriptiva II", "DA2|Dibujo Arquitectónico II"],
       III: ["FA|Física Aplicada", "CT1|Construcción I", "PR1|Proyectos I", "HA2|Historia de la Arquitectura II"],
-      IV: ["EST1|Estructuras I", "HA4|Historia de la Arquitectura III", "PR2|Proyectos II", "HDA|Herramientas Digitales Aplicadas"],
+      IV: ["EST1|Estructuras I", "HA3|Historia de la Arquitectura III", "PR2|Proyectos II", "HDA|Herramientas Digitales Aplicadas"],
       V: ["CT2|Construcción II", "HA4|Historia de la arquitectura IV", "PR3|Proyectos III"],
       VI: ["ETC|Estética", "EST2|Estructuras II", "PR4|Proyectos IV", "GPR|Gestión de Proyectos"],
       VII: ["CT3|Construcción III", "IT1|Instalaciones I", "PR5|Proyectos V", "EGA|Expresión Gráfica Avanzada"],
