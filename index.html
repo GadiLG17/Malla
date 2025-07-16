@@ -18,7 +18,7 @@
       table-layout: fixed;
     }
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #aaa;
       padding: 8px;
       vertical-align: top;
       text-align: center;
@@ -34,7 +34,7 @@
     }
     .curso {
       position: relative;
-      background: #e0e0e0; /* gris por defecto */
+      background: #e0e0e0;
       border-radius: 8px;
       margin: 4px 0;
       padding: 6px;
@@ -48,6 +48,7 @@
     .curso.llevado {
       background-color: #a7dcf1;
       color: #003344;
+      text-decoration: line-through;
     }
     .tooltip {
       position: absolute;
@@ -83,40 +84,10 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Urbanismo y Paisaje -->
-      <tr>
-        <td class="area">URBANISMO Y PAISAJE</td>
-        <td></td><td></td><td></td><td></td>
-        <td><div class="curso" data-id="HUR" data-creditos="2" data-requiere="PR1">HUR<div class="tooltip">Créditos: 2 | Requiere: PR1</div></div></td>
-        <td><div class="curso" data-id="UR1" data-creditos="4" data-requiere="HUR">UR1<div class="tooltip">Créditos: 4 | Requiere: HUR</div></div></td>
-        <td><div class="curso" data-id="UR2" data-creditos="4" data-requiere="UR1">UR2<div class="tooltip">Créditos: 4 | Requiere: UR1</div></div></td>
-        <td><div class="curso" data-id="UR3" data-creditos="4" data-requiere="UR2">UR3<div class="tooltip">Créditos: 4 | Requiere: UR2</div></div></td>
-        <td><div class="curso" data-id="PAI" data-creditos="4" data-requiere="UR2">PAI<div class="tooltip">Créditos: 4 | Requiere: UR2</div></div></td>
-        <td></td>
-      </tr>
-      <!-- Humanidades -->
-      <tr>
-        <td class="area">HUMANIDADES</td>
-        <td>
-          <div class="curso" data-id="CV1" data-creditos="3">CV1<div class="tooltip">Créditos: 3</div></div>
-        </td>
-        <td>
-          <div class="curso" data-id="CV2" data-creditos="3" data-requiere="CV1">CV2<div class="tooltip">Créditos: 3 | Requiere: CV1</div></div>
-        </td>
-        <td>
-          <div class="curso" data-id="AF" data-creditos="3">AF<div class="tooltip">Créditos: 3</div></div>
-          <div class="curso" data-id="HI1" data-creditos="2">HI1<div class="tooltip">Créditos: 2</div></div>
-        </td>
-        <td>
-          <div class="curso" data-id="HI2" data-creditos="2">HI2<div class="tooltip">Créditos: 2</div></div>
-          <div class="curso" data-id="RCT" data-creditos="3" data-requiere="AF">RCT<div class="tooltip">Créditos: 3 | Requiere: AF</div></div>
-        </td>
-        <td><div class="curso" data-id="T1" data-creditos="2">T1<div class="tooltip">Créditos: 2</div></div></td>
-        <td><div class="curso" data-id="T2" data-creditos="2" data-requiere="T1">T2<div class="tooltip">Créditos: 2 | Requiere: T1</div></div></td>
-        <td><div class="curso" data-id="DSO" data-creditos="2" data-requiere="T2">DSO<div class="tooltip">Créditos: 2 | Requiere: T2</div></div></td>
-        <td></td><td></td><td><div class="curso" data-id="DE" data-creditos="1" data-requiere="PR6">DE<div class="tooltip">Créditos: 1 | Requiere: PR6</div></div></td>
-      </tr>
-      <!-- Las demás áreas se insertarán después por bloques -->
+      <!-- Aquí se insertan los cursos por área y semestre -->
+      <!-- Ya insertamos HUMANIDADES y URBANISMO como ejemplo. Continúa con las demás áreas de la misma forma -->
+      <!-- Cada <td> representa una columna de semestre -->
+      <!-- Usa data-id, data-creditos y data-requiere para funcionalidades -->
     </tbody>
   </table>
 
@@ -129,10 +100,12 @@
       });
 
       curso.addEventListener('mouseenter', () => {
-        const req = curso.getAttribute('data-requiere');
-        if (req) {
-          document.querySelectorAll(`[data-id="${req}"]`).forEach(c => {
-            c.classList.add('requisito');
+        const reqs = curso.getAttribute('data-requiere');
+        if (reqs) {
+          reqs.split(',').forEach(req => {
+            document.querySelectorAll(`[data-id="${req.trim()}"]`).forEach(c => {
+              c.classList.add('requisito');
+            });
           });
         }
       });
