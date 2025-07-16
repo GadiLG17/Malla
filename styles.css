@@ -22,14 +22,6 @@ th, td {
   overflow: visible;
 }
 
-/* ✅ Los cursos se organizan en columna para espacio real */
-td {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 24px; /* Espacio REAL entre tarjetas */
-}
-
 th {
   background-color: #ddd;
 }
@@ -40,7 +32,14 @@ th {
   text-align: left;
 }
 
-/* ✅ Tarjeta del curso */
+/* Añadido: organizar los cursos con espacio vertical claro */
+td {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Espacio entre tarjetas */
+}
+
 .curso {
   position: relative;
   border-radius: 8px;
@@ -49,10 +48,11 @@ th {
   cursor: pointer;
   transition: background 0.2s;
   color: #003344;
+  width: 100%;
   z-index: 1;
 }
 
-/* ✅ Colores variados */
+/* Variantes de color para cursos */
 .color1 { background-color: #cceeff; }
 .color2 { background-color: #b3e5fc; }
 .color3 { background-color: #d0f0ff; }
@@ -69,12 +69,12 @@ th {
   text-decoration: line-through;
 }
 
-/* ✅ Tooltip bien ubicado, encima de todo */
 .tooltip {
   position: absolute;
-  top: -100%;
+  bottom: 100%; /* Aparece hacia arriba */
   left: 50%;
-  transform: translate(-50%, -10px);
+  transform: translateX(-50%);
+  margin-bottom: 8px;
   background: #333;
   color: white;
   padding: 6px 10px;
@@ -91,7 +91,6 @@ th {
   display: block;
 }
 
-/* ✅ Para resaltar cursos requeridos */
 .requisito {
   outline: 2px dashed orange;
   outline-offset: -3px;
