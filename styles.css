@@ -18,9 +18,9 @@ th, td {
   vertical-align: top;
   text-align: center;
   min-width: 100px;
-  position: relative;    /* Necesario para posicionar correctamente el tooltip */
-  overflow: visible;     /* Permite que el tooltip sobresalga */
-  z-index: 0;            /* Establece base */
+  position: relative;
+  overflow: visible;
+  z-index: 0;
 }
 
 th {
@@ -33,12 +33,12 @@ th {
   text-align: left;
 }
 
-/* Estilo general para las tarjetas de curso */
+/* Tarjetas de cursos con más espacio vertical */
 .curso {
   position: relative;
   border-radius: 8px;
-  margin: 4px 0;
-  padding: 6px;
+  margin: 10px 0; /* ↑ espacio vertical aumentado */
+  padding: 8px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
@@ -46,26 +46,23 @@ th {
   z-index: 1;
 }
 
-/* Colores de fondo variados para cursos */
+/* Variaciones de color (puedes agregar más si deseas) */
 .color1 { background-color: #cceeff; }
 .color2 { background-color: #b3e5fc; }
 .color3 { background-color: #d0f0ff; }
 .color4 { background-color: #a2d5f2; }
 .color5 { background-color: #e1f5fe; }
 
-/* Efecto al pasar el cursor */
 .curso:hover {
   filter: brightness(1.1);
 }
 
-/* Cuando el curso ha sido marcado como llevado */
 .curso.llevado {
   background-color: #a7dcf1 !important;
   color: #003344;
   text-decoration: line-through;
 }
 
-/* Tooltip con créditos y requisitos */
 .tooltip {
   position: absolute;
   top: 100%;
@@ -78,17 +75,15 @@ th {
   font-size: 12px;
   white-space: nowrap;
   display: none;
-  z-index: 9999; /* Asegura que se muestre sobre todo */
+  z-index: 9999;
   pointer-events: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Mostrar tooltip al pasar el cursor */
 .curso:hover .tooltip {
   display: block;
 }
 
-/* Resaltado de requisitos */
 .requisito {
   outline: 2px dashed orange;
   outline-offset: -3px;
